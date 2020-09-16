@@ -21,12 +21,12 @@ export default Header;
 
 const StyledHeader = styled.div`
   background: #1c1c1c;
-  padding: 0 20px;
+  padding: 0 15px;
   box-sizing: border-box;
 
   .header-content {
     max-width: 1280px;
-    min-height: 120px;
+    min-height: 50px;
     padding: 20px 0;
     margin: 0 auto;
     box-sizing: border-box;
@@ -35,16 +35,15 @@ const StyledHeader = styled.div`
     align-items: center;
 
     @media screen and (max-width: 500px) {
-      min-height: 0px;
+      min-height: 70px;
     }
   }
 `;
 
 const StyledRMDMLogo = styled.img`
-  width: 120px;
+  width: 70px;
 
   @media screen and (max-width: 500px) {
-    width: 100px;
     margin-top: 5px;
   }
 `;

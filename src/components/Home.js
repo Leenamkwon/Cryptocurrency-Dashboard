@@ -12,23 +12,22 @@ const Home = () => {
   const context = useContext(MovieContext);
   const { state } = context;
 
+  if (state.error) {
+    return <div>Something went wrong...</div>;
+  }
   if (!state.movies[0]) {
-    return (
-      <>
-        <h1>로딩중</h1>
-      </>
-    );
+    return <Spinner />;
   }
 
   return (
-    <>
+    <div>
       <HeroImage />
       <SearchBar />
       <Grid />
       <MovieThumb />
       <Spinner />
       <LoadMoreBtn />
-    </>
+    </div>
   );
 };
 
