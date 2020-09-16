@@ -12,13 +12,13 @@ export const UseHomeFetch = () => {
     setLoading(true);
 
     try {
-      const result = await axios(endpoint);
+      const result = await await axios(endpoint);
       setState((prevState) => ({
         ...prevState,
         movies: [...result.data.results],
         heroImage: prevState.heroImage || result.data.results[0],
         currentPage: result.data.page,
-        totalPages: result.data.total_Pages,
+        totalPages: result.data.total_pages,
       }));
     } catch (error) {
       setError(true);

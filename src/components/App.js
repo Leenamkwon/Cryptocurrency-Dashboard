@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './elements/Header';
 import Home from './Home';
-import { MovieProvider } from '../contexts/MovieProvider';
 
-const App = () => (
-  <div>
-    <MovieProvider>
+const App = () => {
+  return (
+    <div>
       <Header />
       <Home />
-    </MovieProvider>
-  </div>
-);
+    </div>
+  );
+};
 
 export default App;
