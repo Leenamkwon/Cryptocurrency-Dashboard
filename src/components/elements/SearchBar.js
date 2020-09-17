@@ -9,26 +9,25 @@ const SearchBar = () => {
     fetchMovies,
   } = context;
 
-  const timeOut = useRef(null);
+  // const timeOut = useRef(null);
 
-  const doSearch = (e) => {
-    const { value } = e.target;
+  // const doSearch = (e) => {
+  //   const { value } = e.target;
 
-    clearTimeout(timeOut.current);
-    setSearchTerm(value);
+  //   clearTimeout(timeOut.current);
+  //   setSearchTerm(value);
 
-    timeOut.current = setTimeout(() => {}, 500);
-  };
+  //   timeOut.current = setTimeout(() => {
+  //     setSearchTerm(e.target.value);
+  //   }, 500);
+  // };
+
+  console.log('search bar');
 
   return (
     <StyledSearchForm>
       <form>
-        <input
-          type='text'
-          placeholder='예: 어벤저스, 매드맥스'
-          onChange={doSearch}
-          value={searchTerm}
-        />
+        <input type='text' placeholder='예: 어벤저스, 매드맥스' />
         <button type='submit'>
           <i className='fas fa-search'></i>
         </button>

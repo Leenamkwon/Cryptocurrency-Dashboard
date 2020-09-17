@@ -5,7 +5,7 @@ import FixedNav from '../hooks/FixedNav';
 import SearchBar from './SearchBar';
 
 const Header = () => {
-  const [navFix, indicator] = FixedNav();
+  const [navFix] = FixedNav();
 
   return (
     <StyledHeader className={navFix === true ? 'fixed-nav' : ''}>
@@ -14,13 +14,9 @@ const Header = () => {
           src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/1280px-Tmdb.new.logo.svg.png'
           alt='rmdb-logo'
         />
-        <SearchBar className='search' />
+        <SearchBar />
         <StyledTMDMLogo src={TMDBLogo} alt='tmdb-logo' />
       </div>
-      <Indicator
-        className='indicator'
-        style={{ width: `${indicator}%` }}
-      ></Indicator>
     </StyledHeader>
   );
 };
@@ -78,19 +74,4 @@ const StyledTMDMLogo = styled.img`
     width: 120px;
     margin-top: 0px;
   }
-`;
-
-const Indicator = styled.div`
-  height: 5px;
-  transition: width 0.2s ease-in-out;
-  background: -webkit-linear-gradient(
-    to right,
-    #36d1dc,
-    #5b86e5
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #36d1dc,
-    #5b86e5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `;

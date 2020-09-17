@@ -5,11 +5,12 @@ const MovieContext = createContext();
 const MovieProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [{ state, loading, error }, fetchMovies] = UseHomeFetch();
+  const [{ state, loading, error, setState }, fetchMovies] = UseHomeFetch();
 
   return (
     <MovieContext.Provider
       value={{
+        setState,
         state,
         loading,
         error,

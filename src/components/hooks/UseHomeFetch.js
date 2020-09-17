@@ -13,14 +13,14 @@ export const UseHomeFetch = () => {
 
     try {
       const result = await axios(endpoint);
+      console.log(state);
       setState((prevState) => ({
         ...prevState,
-        movies: [...prevState.movies, ...result.data.results],
+        movies: prevState.movies.concat(result.data.results),
         heroImage: prevState.heroImage || result.data.results[0],
         currentPage: result.data.page,
         totalPages: result.data.total_pages,
       }));
-      console.log(result);
     } catch (error) {
       setError(true);
     }
@@ -32,5 +32,5 @@ export const UseHomeFetch = () => {
     fetchMovies(POPULAR_BASE_URL);
   }, []);
 
-  return [{ state, loading, error }, fetchMovies];
+  return [{ state, loading, error, setState }, fetchMovies];
 };
