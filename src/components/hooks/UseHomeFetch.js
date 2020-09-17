@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API_URL, API_KEY } from '../../config';
+import { POPULAR_BASE_URL } from '../../config';
 
 export const UseHomeFetch = () => {
   const [state, setState] = useState({ movies: [] });
@@ -12,14 +12,15 @@ export const UseHomeFetch = () => {
     setLoading(true);
 
     try {
-      const result = await await axios(endpoint);
+      const result = await axios(endpoint);
       setState((prevState) => ({
         ...prevState,
-        movies: [...result.data.results],
+        movies: [...prevState.movies, ...result.data.results],
         heroImage: prevState.heroImage || result.data.results[0],
         currentPage: result.data.page,
         totalPages: result.data.total_pages,
       }));
+      console.log(result);
     } catch (error) {
       setError(true);
     }
@@ -28,7 +29,7 @@ export const UseHomeFetch = () => {
   };
 
   useEffect(() => {
-    fetchMovies(`${API_URL}movie/popular?api_key=${API_KEY}`);
+    fetchMovies(POPULAR_BASE_URL);
   }, []);
 
   return [{ state, loading, error }, fetchMovies];

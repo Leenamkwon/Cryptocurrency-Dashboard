@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { MovieContext } from '../../contexts/MovieProvider';
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
 import styled from 'styled-components';
 
 const HeroImage = () => {
@@ -17,7 +16,6 @@ const HeroImage = () => {
     release_date,
   } = heroImage;
 
-  console.log(backdrop_path);
   return (
     <StyledHeroImage className='header' images={backdrop_path}>
       <div className='heroimage-content'>
@@ -64,7 +62,7 @@ const StyledHeroImage = styled.div`
     max-width: 650px;
     position: absolute;
     overflow: hidden;
-    color: #ccc;
+    color: #fff;
     top: 34%;
     padding: 10px;
 

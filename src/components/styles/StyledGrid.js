@@ -3,10 +3,14 @@ import styled from 'styled-components';
 export const StyledGrid = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px 20px;
   h1 {
-    font-family: 'Abel', sans-serif;
-    font-size: 42px;
+    /* font-family: 'Abel', sans-serif; */
+    font-size: 32px;
+    background-image: linear-gradient(to right, #36d1dc, #5b86e5);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 400;
 
     @media screen and (max-width: 768px) {
       font-size: 22px;

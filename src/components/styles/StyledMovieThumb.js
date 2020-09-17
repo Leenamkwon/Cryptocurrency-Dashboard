@@ -11,6 +11,12 @@ export const StyledMovieThumb = styled.div`
 
     :hover {
       opacity: 0.8;
+      transform: translateY(-10px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.7);
+    }
+
+    &:active {
+      transform: translateY(5px);
     }
 
     /* @media screen and (max-width: 1024px) {
