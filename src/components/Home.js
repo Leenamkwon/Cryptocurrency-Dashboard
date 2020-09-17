@@ -12,6 +12,8 @@ const Home = () => {
   const context = useContext(MovieContext);
   const { state } = context;
 
+  console.log('hi');
+
   if (state.error) {
     return <div>Something went wrong...</div>;
   }

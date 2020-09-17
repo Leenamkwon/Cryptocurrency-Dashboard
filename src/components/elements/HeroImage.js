@@ -19,7 +19,7 @@ const HeroImage = () => {
 
   console.log(backdrop_path);
   return (
-    <StyledHeroImage images={backdrop_path}>
+    <StyledHeroImage className='header' images={backdrop_path}>
       <div className='heroimage-content'>
         <div className='heroimage-text'>
           <h1>{title}</h1>
