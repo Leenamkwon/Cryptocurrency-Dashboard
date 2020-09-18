@@ -1,21 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import TMDBLogo from '../images/tmdb_logo.svg';
-import FixedNav from '../hooks/FixedNav';
-import SearchBar from './SearchBar';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-  const [navFix] = FixedNav();
-
   return (
-    <StyledHeader className={navFix === true ? 'fixed-nav' : ''}>
+    <StyledHeader>
       <div className='header-content'>
-        <StyledRMDMLogo
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/1280px-Tmdb.new.logo.svg.png'
-          alt='rmdb-logo'
-        />
-        <SearchBar />
-        <StyledTMDMLogo src={TMDBLogo} alt='tmdb-logo' />
+        <NavLink to='/'>
+          <StyledRMDMLogo
+            src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/1280px-Tmdb.new.logo.svg.png'
+            alt='rmdb-logo'
+          />
+        </NavLink>
       </div>
     </StyledHeader>
   );
