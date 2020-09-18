@@ -51,12 +51,14 @@ const MovieDetail = ({ match }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ backgroundColor: '#000000' }}>
-          <ReactPlayer
-            className='container-fluid'
-            url={youtubeUrl + video.key}
-            playing
-            width='100%'
-          ></ReactPlayer>
+          {video.key && (
+            <ReactPlayer
+              className='container-fluid'
+              url={video.key ? youtubeUrl + video.key : ''}
+              playing
+              width='100%'
+            />
+          )}
         </Modal.Body>
       </Modal>
     );
