@@ -17,6 +17,8 @@ const Home = () => {
   const [movieByGenre, setMovieByGenre] = useState([]);
   const [persons, setPersons] = useState([]);
   const [topRated, setTopRated] = useState([]);
+  const [page, setPage] = useState(0);
+  const [resPage, setResPage] = useState(4);
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -34,7 +36,7 @@ const Home = () => {
     setMovieByGenre(await fetchMovieByGenre(genre_id));
   };
 
-  const movies = nowPlaying.slice(0, 5).map((item, index) => {
+  const movies = nowPlaying.slice(0, 4).map((item, index) => {
     return (
       <div key={index} style={{ width: '100%', height: 500 }}>
         <div className='carousel-center'>
@@ -76,7 +78,7 @@ const Home = () => {
     );
   });
 
-  const movieList = movieByGenre.slice(0, 4).map((item, index) => {
+  const movieList = movieByGenre.slice(page, resPage).map((item, index) => {
     return (
       <div className='col-md-3 col-sm-6 movie-con' key={index}>
         <div
@@ -142,6 +144,16 @@ const Home = () => {
     );
   });
 
+  const handleNextMove = () => {
+    setPage(resPage); // 0 4
+    setResPage(resPage + 4); // 4 8
+  };
+
+  const handlePrevMove = () => {
+    setPage(page - 4);
+    setResPage(resPage - 4);
+  };
+
   return (
     <div className='container' style={{ paddingTop: '100px' }}>
       <div className='row mt-2'>
@@ -169,9 +181,18 @@ const Home = () => {
           <span className='font-weight-bold' style={{ color: '#61dafb' }}>
             신작 영화
           </span>
-          <div className='float-right'>
-            <i className='far fa-arrow-alt-circle-right'></i>
-          </div>
+
+          {page === 16 ? null : (
+            <div className='float-right' onClick={handleNextMove}>
+              <i className='far fa-arrow-alt-circle-right'></i>
+            </div>
+          )}
+
+          {page === 0 ? null : (
+            <div className='float-right' onClick={handlePrevMove}>
+              <i className='far fa-arrow-alt-circle-left'></i>
+            </div>
+          )}
         </div>
       </div>
       <div className='row mt-3'>{movieList}</div>

@@ -41,7 +41,8 @@ code {
   opacity: 0.6;
 }
 
-.fa-arrow-alt-circle-right {
+.fa-arrow-alt-circle-right,
+.fa-arrow-alt-circle-left {
   color: #61dafb;
   font-size: 40px;
   font-weight: bolder;
@@ -49,14 +50,15 @@ code {
   transition: all 0.3s ease;
 }
 
-.fa-arrow-alt-circle-right:hover {
+.fa-arrow-alt-circle-right:hover,
+.fa-arrow-alt-circle-left:hover {
   color: #fff;
   transform: translateY(-5px);
 }
 
 .movie-con {
   transition: all 0.3s ease;
-  animation: opacity 0.3;
+  animation: opacity 0.3s 0.2;
 }
 
 @keyframes opacity {
